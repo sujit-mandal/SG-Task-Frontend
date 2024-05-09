@@ -11,7 +11,7 @@ const Data = () => {
     const fetchData = async () => {
       try {
         const studentData = await axios.get(
-          `http://localhost:5000/student-data/${params.blogId}`
+          `https://sg-server-gamma.vercel.app/student-data/${params.blogId}`
         );
         setStudentInfo(studentData.data);
       } catch (error) {

@@ -10,7 +10,7 @@ const BlogDetails = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/blog-details/${params.slug}`
+          `https://sg-server-gamma.vercel.app/blog-details/${params.slug}`
         );
         setBlog(res.data);
       } catch (error) {

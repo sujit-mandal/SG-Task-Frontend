@@ -11,7 +11,7 @@ const SignIn = () => {
     try {
       console.log({ email, password });
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "https://sg-server-gamma.vercel.app/login",
         { email, password },
         {
           headers: {

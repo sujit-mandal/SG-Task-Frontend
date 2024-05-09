@@ -6,7 +6,9 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/logout");
+      const response = await axios.get(
+        "https://sg-server-gamma.vercel.app/logout"
+      );
       if (response.data.loggedOut) {
         navigate("/admin/login");
       }

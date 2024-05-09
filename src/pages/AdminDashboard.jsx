@@ -9,7 +9,9 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const blog = await axios.get("http://localhost:5000/all-blogs");
+        const blog = await axios.get(
+          "https://sg-server-gamma.vercel.app/all-blogs"
+        );
         setShowBlog(blog.data);
       } catch (error) {
         console.error("Error fetching data:", error);

@@ -21,7 +21,10 @@ const StudentInfo = ({ blogId }) => {
     setFormData(formDataFromInputs);
     setErrorMessage(null);
     axios
-      .post("http://localhost:5000/post-student-info", formDataFromInputs)
+      .post(
+        "https://sg-server-gamma.vercel.app/post-student-info",
+        formDataFromInputs
+      )
       .then((response) => {
         toast.success("Form submitted successfully");
         setFormData(null);
