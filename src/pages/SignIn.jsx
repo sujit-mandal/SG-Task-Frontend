@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
@@ -22,7 +23,7 @@ const SignIn = () => {
         window.location.href = "/admin/dashboard";
       }
     } catch (error) {
-      alert("Login Failed!");
+      toast.error("Login Failed.");
     }
   };
 

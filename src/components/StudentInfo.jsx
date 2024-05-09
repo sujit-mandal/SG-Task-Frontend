@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 
 const StudentInfo = ({ blogId }) => {
   const [errorMessage, setErrorMessage] = useState(null);
+  const [formData, setFormData] = useState(null);
   const formRef = useRef(null);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +18,20 @@ const StudentInfo = ({ blogId }) => {
       university: event.target.university.value,
       preferredCourse: event.target.preferredCourse.value,
     };
-    console.log("Form submitted:", formDataFromInputs);
+    setFormData(formDataFromInputs);
     setErrorMessage(null);
-    axios.post("http://localhost:5000/post-student-info", formDataFromInputs);
-    toast.success("Form submitted successfully");
-    formRef.current.reset();
+    axios
+      .post("http://localhost:5000/post-student-info", formDataFromInputs)
+      .then((response) => {
+        toast.success("Form submitted successfully");
+        setFormData(null);
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        setErrorMessage("Failed to submit the form. Please try again.");
+        toast.error("Error submitting form. Data is retained.");
+      });
   };
 
   return (
